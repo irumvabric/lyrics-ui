@@ -1,0 +1,6 @@
+{
+  "name": "Gospel Burundi",
+  "description": "Plateforme moderne de découverte et d'écoute de musique gospel burundaise.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
