@@ -1,37 +1,23 @@
 <template>
-  <div class="space-y-6">
-    <div>
-      <h1 class="text-2xl font-bold text-white tracking-tight">Genres & Styles Gospel</h1>
-      <p class="text-xs text-[#A0A0A0]">Explorez la diversité des chants d'adoration burundais</p>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10">
+    <div class="mb-8">
+      <p class="text-xs font-bold text-[#9333EA] uppercase tracking-widest mb-1">Ubwoko / Genres</p>
+      <h1 class="text-2xl sm:text-3xl font-extrabold text-white">Genres Musicaux</h1>
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
       <div
-        v-for="genre in mockGenres"
+        v-for="genre in genres"
         :key="genre.id"
-        class="group relative overflow-hidden rounded-xl p-6 border border-[#151818] cursor-pointer transition-all hover:-translate-y-1"
-        :style="{ backgroundColor: '#101212' }"
+        class="group flex items-start gap-4 p-5 rounded-2xl border border-white/5 bg-[#0C0E0E] hover:bg-[#0F1110] hover:border-white/10 transition-all cursor-pointer"
       >
-        <div
-          class="absolute top-0 right-0 w-32 h-32 rounded-full blur-3xl opacity-20 group-hover:opacity-40 transition-opacity"
-          :style="{ backgroundColor: genre.color }"
-        ></div>
-
-        <div class="relative z-10">
-          <div
-            class="w-3 h-3 rounded-full mb-3"
-            :style="{ backgroundColor: genre.color }"
-          ></div>
-          <h3 class="text-lg font-bold text-white mb-1 group-hover:text-white transition-colors">
-            {{ genre.name }}
-          </h3>
-          <p class="text-xs text-[#A0A0A0] mb-4 leading-relaxed">
-            {{ genre.description }}
-          </p>
-          <div class="flex items-center justify-between text-[11px] font-mono text-[#666666]">
-            <span>{{ genre.song_count }} titres</span>
-            <span class="text-[#1F8A4C] group-hover:translate-x-1 transition-transform">Explorer →</span>
-          </div>
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shrink-0 shadow-lg transition-transform group-hover:scale-110" :style="`background:${genre.color}22`">
+          <span class="w-5 h-5 rounded-full" :style="`background:${genre.color}`"></span>
+        </div>
+        <div class="flex-1 min-w-0">
+          <h2 class="text-base font-bold text-white group-hover:text-white transition-colors leading-snug">{{ genre.name }}</h2>
+          <p class="text-xs text-[#555555] mt-1 leading-relaxed">{{ genre.description }}</p>
+          <p class="text-xs font-mono mt-2" :style="`color:${genre.color}`">{{ genre.song_count }} indirimbo / chansons</p>
         </div>
       </div>
     </div>
@@ -40,4 +26,5 @@
 
 <script setup lang="ts">
 import { mockGenres } from '@/data/mockData';
+const genres = mockGenres;
 </script>

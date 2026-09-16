@@ -59,6 +59,7 @@ export interface Album {
   artist_id: number;
   artist?: Artist;
   songs?: Song[];
+  description?: string;
 }
 
 export type SongStatus = 'pending' | 'approved' | 'rejected';
@@ -68,8 +69,8 @@ export interface Song {
   title: string;
   slug: string;
   cover_url: string;
-  audio_url: string;
-  duration: string; // e.g. "04:21"
+  youtube_url?: string;
+  duration: string;
   duration_seconds: number;
   release_year: number;
   plays_count: number;
@@ -83,31 +84,6 @@ export interface Song {
   is_favorite?: boolean;
 }
 
-export interface Playlist {
-  id: number;
-  title: string;
-  slug: string;
-  description?: string;
-  cover_url?: string;
-  user_id: number;
-  is_public: boolean;
-  songs_count: number;
-  songs?: Song[];
-}
-
-export interface HistoryItem {
-  id: number;
-  song: Song;
-  played_at: string;
-}
-
-export interface AuthState {
-  user: User | null;
-  token: string | null;
-  isAuthenticated: boolean;
-  role: UserRole | null;
-}
-
 export interface SearchResults {
   songs: Song[];
   artists: Artist[];
@@ -119,6 +95,6 @@ export interface SystemStats {
   artists_count: number;
   songs_count: number;
   albums_count: number;
-  users_count: number;
-  total_plays: string;
+  genres_count: number;
+  total_views: string;
 }
