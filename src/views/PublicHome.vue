@@ -4,10 +4,10 @@
     <section class="relative overflow-hidden bg-gradient-to-b from-[#0D1A10] to-[#080A0A] py-16 px-4">
       <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMwLTkuOTQtOC4wNi0xOC0xOC0xOCIgc3Ryb2tlPSIjMUY4QTRDIiBzdHJva2Utd2lkdGg9Ii41IiBvcGFjaXR5PSIuMSIvPjwvZz48L3N2Zz4=')] opacity-30"></div>
       <div class="relative max-w-2xl mx-auto text-center">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1F8A4C]/10 border border-[#1F8A4C]/20 text-xs font-semibold text-[#1F8A4C] mb-6">
+        <!-- <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1F8A4C]/10 border border-[#1F8A4C]/20 text-xs font-semibold text-[#1F8A4C] mb-6">
           <span class="w-1.5 h-1.5 rounded-full bg-[#1F8A4C] animate-pulse"></span>
           Amashitira y'indirimbo za Gospel — Paroles Gospel Burundi
-        </div>
+        </div> -->
         <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
           Les Paroles du <span class="text-[#1F8A4C]">Gospel</span> Burundais
         </h1>

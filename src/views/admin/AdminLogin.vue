@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-[#080A0A] flex items-center justify-center px-4">
+  <div class="admin-login min-h-screen bg-[#080A0A] flex items-center justify-center px-4">
     <div class="w-full max-w-sm">
       <!-- Logo -->
       <div class="text-center mb-8">
@@ -20,14 +20,14 @@
           <!-- Username -->
           <div>
             <label class="block text-xs font-semibold text-[#777777] uppercase tracking-wider mb-1.5">
-              Nom d'utilisateur / Username
+              Adresse email / Email
             </label>
             <input
               v-model="form.username"
-              type="text"
+              type="email"
               id="admin-username"
-              autocomplete="username"
-              placeholder="admin"
+              autocomplete="email"
+              placeholder="admin@example.com"
               class="w-full bg-[#111313] border rounded-xl px-4 py-2.5 text-sm text-white placeholder-[#444444] outline-none transition-all"
               :class="error ? 'border-red-500/50' : 'border-white/8 focus:border-[#1F8A4C]/50'"
             />
@@ -100,13 +100,36 @@ const showPassword = ref(false);
 async function handleLogin() {
   error.value = '';
   loading.value = true;
-  await new Promise(r => setTimeout(r, 500));
-  const ok = authStore.login(form.value.username, form.value.password);
-  loading.value = false;
-  if (ok) {
-    router.push('/admin/dashboard');
-  } else {
-    error.value = 'Identifiants incorrects. / Amakuru si yo. (admin / admin)';
+  try {
+    await authStore.login({ ...form.value, email: form.value.username });
+    if (!authStore.isAdmin) {
+      await authStore.logout();
+      throw new Error('This account does not have administrator access.');
+    }
+    await router.push('/admin/dashboard');
+  } catch (requestError: any) {
+    const responseData = requestError?.response?.data;
+    error.value = responseData?.message
+      || responseData?.errors?.username?.[0]
+      || responseData?.errors?.email?.[0]
+      || (requestError?.response
+        ? 'Identifiants incorrects. / Amakuru si yo.'
+        : (requestError?.message || 'Unable to connect to the API server.'));
+  } finally {
+    loading.value = false;
   }
 }
 </script>
+
+<style scoped>
+.admin-login input {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  caret-color: #0f172a;
+}
+
+.admin-login input::placeholder {
+  color: #64748b !important;
+  opacity: 1;
+}
+</style>

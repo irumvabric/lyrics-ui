@@ -1,7 +1,7 @@
 <template>
   <footer
     v-if="playerStore.currentSong"
-    class="fixed bottom-0 inset-x-0 z-30 bg-[#101212]/95 backdrop-blur-xl border-t border-[#151818] px-3 sm:px-6 py-2.5 sm:py-3 transition-all"
+    class="fixed bottom-0 inset-x-0 z-30 bg-[#F8FAFC]/95 backdrop-blur-xl border-t border-slate-200 px-3 sm:px-6 py-2.5 sm:py-3 transition-all"
   >
     <div class="max-w-7xl mx-auto flex items-center justify-between gap-2 sm:gap-4">
       <!-- Left: Song Info -->
@@ -14,14 +14,14 @@
         <div class="truncate">
           <router-link
             :to="`/songs/${playerStore.currentSong.slug}`"
-            class="text-xs sm:text-sm font-semibold text-white hover:text-[#1F8A4C] transition-colors truncate block"
+            class="text-xs sm:text-sm font-semibold text-slate-900 hover:text-[#1F8A4C] transition-colors truncate block"
           >
             {{ playerStore.currentSong.title }}
           </router-link>
           <router-link
             v-if="playerStore.currentSong.artist"
             :to="`/artists/${playerStore.currentSong.artist.slug}`"
-            class="text-[11px] text-[#A0A0A0] hover:text-white transition-colors truncate block"
+            class="text-[11px] text-slate-600 hover:text-slate-900 transition-colors truncate block"
           >
             {{ playerStore.currentSong.artist.name }}
           </router-link>
@@ -30,7 +30,7 @@
         <!-- Favorite Button -->
         <button
           @click="playerStore.toggleFavorite()"
-          class="hidden sm:inline-flex p-1.5 text-neutral-400 hover:text-white transition-colors shrink-0"
+          class="hidden sm:inline-flex p-1.5 text-slate-500 hover:text-slate-900 transition-colors shrink-0"
           title="Favoris"
         >
           <svg
@@ -64,7 +64,7 @@
           <!-- Prev -->
           <button
             @click="playerStore.prev()"
-            class="text-[#A0A0A0] hover:text-white transition-colors p-1"
+            class="text-slate-500 hover:text-slate-900 transition-colors p-1"
             title="Précédent"
           >
             <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
@@ -89,7 +89,7 @@
           <!-- Next -->
           <button
             @click="playerStore.next()"
-            class="text-[#A0A0A0] hover:text-white transition-colors p-1"
+            class="text-slate-500 hover:text-slate-900 transition-colors p-1"
             title="Suivant"
           >
             <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
@@ -112,10 +112,10 @@
         </div>
 
         <!-- Progress bar & Time -->
-        <div class="w-full flex items-center gap-2 text-[11px] text-[#A0A0A0] font-mono select-none">
+        <div class="w-full flex items-center gap-2 text-[11px] text-slate-500 font-mono select-none">
           <span class="w-9 text-right shrink-0">{{ playerStore.formattedProgress }}</span>
           <div
-            class="relative flex-1 h-1.5 bg-[#151818] rounded-full cursor-pointer group"
+            class="relative flex-1 h-1.5 bg-slate-200 rounded-full cursor-pointer group"
             @click="handleProgressClick"
           >
             <div
@@ -133,7 +133,7 @@
       <div class="hidden md:flex items-center justify-end gap-3 w-1/3 min-w-[140px]">
         <router-link
           :to="`/songs/${playerStore.currentSong.slug}`"
-          class="text-xs text-[#A0A0A0] hover:text-white flex items-center gap-1.5 px-2 py-1 rounded hover:bg-[#151818]"
+          class="text-xs text-slate-600 hover:text-slate-900 flex items-center gap-1.5 px-2 py-1 rounded hover:bg-slate-100"
           title="Afficher les paroles"
         >
           <svg class="w-4 h-4 text-[#1E5AA8]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -146,7 +146,7 @@
         <div class="flex items-center gap-2">
           <button
             @click="playerStore.setVolume(playerStore.volume === 0 ? 80 : 0)"
-            class="text-[#A0A0A0] hover:text-white transition-colors"
+            class="text-slate-500 hover:text-slate-900 transition-colors"
           >
             <svg v-if="playerStore.volume === 0" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
@@ -162,7 +162,7 @@
             max="100"
             :value="playerStore.volume"
             @input="(e: any) => playerStore.setVolume(Number(e.target.value))"
-            class="w-16 sm:w-20 h-1 bg-[#151818] accent-[#1F8A4C] rounded cursor-pointer"
+            class="w-16 sm:w-20 h-1 bg-slate-200 accent-[#1F8A4C] rounded cursor-pointer"
           />
         </div>
       </div>

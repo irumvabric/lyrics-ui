@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-[#080A0A] text-white flex flex-col antialiased">
+  <div class="min-h-screen bg-[#F5F7F8] text-slate-900 flex flex-col antialiased">
     <div class="flex flex-1">
       <!-- Fixed Left Sidebar -->
       <Sidebar />

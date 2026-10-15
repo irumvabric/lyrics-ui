@@ -1,7 +1,7 @@
 <template>
-  <div class="min-h-screen bg-[#080A0A] text-white flex flex-col antialiased">
+  <div class="min-h-screen bg-[#F5F7F8] text-slate-900 flex flex-col antialiased">
     <!-- ─── Navbar ─── -->
-    <header class="sticky top-0 z-50 bg-[#080A0A]/95 backdrop-blur-xl border-b border-white/5">
+    <header class="sticky top-0 z-50 bg-[#F8FAFC]/95 backdrop-blur-xl border-b border-slate-200">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between gap-4">
         <!-- Logo -->
         <router-link to="/" class="flex items-center gap-2 shrink-0 group">
@@ -10,7 +10,7 @@
               <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
             </svg>
           </div>
-          <span class="text-base font-extrabold tracking-tight text-white hidden sm:block">
+          <span class="text-base font-extrabold tracking-tight text-slate-900 hidden sm:block">
             Gospel <span class="text-[#1F8A4C]">Burundi</span>
           </span>
         </router-link>
@@ -21,8 +21,8 @@
             v-for="link in navLinks"
             :key="link.to"
             :to="link.to"
-            class="px-3 py-1.5 rounded-md text-sm font-medium text-[#A0A0A0] hover:text-white hover:bg-white/5 transition-all"
-            active-class="text-white bg-white/5"
+            class="px-3 py-1.5 rounded-md text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-all"
+            active-class="text-slate-900 bg-slate-100"
           >
             {{ link.label }}
           </router-link>
@@ -35,7 +35,7 @@
             type="text"
             id="navbar-search"
             placeholder="Nshaka... / Rechercher..."
-            class="w-full bg-[#111313] border border-white/8 focus:border-[#1F8A4C]/60 rounded-full pl-3.5 pr-9 py-1.5 text-sm text-white placeholder-[#555555] outline-none transition-all"
+            class="w-full bg-white border border-slate-200 focus:border-[#1F8A4C]/60 rounded-full pl-3.5 pr-9 py-1.5 text-sm text-slate-900 placeholder-slate-400 outline-none transition-all"
           />
           <button type="submit" class="absolute right-1.5 p-1 rounded-full bg-[#1F8A4C] hover:bg-[#18723e] transition-colors">
             <svg class="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -48,7 +48,7 @@
         <div class="flex items-center gap-2 shrink-0">
           <router-link
             to="/admin"
-            class="hidden sm:flex items-center gap-1.5 text-xs font-medium text-[#666666] hover:text-[#1F8A4C] transition-colors px-2 py-1 rounded border border-white/5 hover:border-[#1F8A4C]/30"
+            class="hidden sm:flex items-center gap-1.5 text-xs font-medium text-slate-600 hover:text-[#1F8A4C] transition-colors px-2 py-1 rounded border border-slate-200 hover:border-[#1F8A4C]/30"
           >
             <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
@@ -57,7 +57,7 @@
             Admin
           </router-link>
           <!-- Mobile menu button -->
-          <button @click="mobileOpen = !mobileOpen" class="md:hidden p-2 rounded-lg text-[#A0A0A0] hover:text-white hover:bg-white/5 transition-colors">
+          <button @click="mobileOpen = !mobileOpen" class="md:hidden p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors">
             <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path v-if="!mobileOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
               <path v-else stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
@@ -68,7 +68,7 @@
 
       <!-- Mobile menu -->
       <transition name="slide-down">
-        <div v-if="mobileOpen" class="md:hidden border-t border-white/5 bg-[#080A0A] px-4 py-3 flex flex-col gap-2">
+        <div v-if="mobileOpen" class="md:hidden border-t border-slate-200 bg-[#F8FAFC] px-4 py-3 flex flex-col gap-2">
           <form @submit.prevent="handleSearch" class="flex items-center relative mb-2">
             <input
               v-model="searchQuery"
@@ -88,8 +88,8 @@
               :key="link.to"
               :to="link.to"
               @click="mobileOpen = false"
-              class="px-3 py-2 rounded-lg text-sm font-medium text-[#A0A0A0] hover:text-white hover:bg-white/5 transition-all"
-              active-class="text-white bg-white/5"
+              class="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-all"
+              active-class="text-slate-900 bg-slate-100"
             >
               {{ link.label }}
             </router-link>
@@ -111,7 +111,7 @@
     </main>
 
     <!-- ─── Footer ─── -->
-    <footer class="border-t border-white/5 bg-[#080A0A] mt-12">
+    <footer class="border-t border-slate-200 bg-[#F8FAFC] mt-12">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
           <div class="col-span-2 md:col-span-1">

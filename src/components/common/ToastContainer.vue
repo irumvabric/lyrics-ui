@@ -14,10 +14,10 @@
         class="pointer-events-auto flex items-center gap-3 p-4 rounded-lg shadow-xl text-sm border font-medium"
         :class="[
           toast.type === 'success'
-            ? 'bg-[#101212] border-[#1F8A4C]/60 text-white'
+            ? 'bg-white border-[#1F8A4C]/60 text-slate-900'
             : toast.type === 'error'
-            ? 'bg-[#101212] border-[#C62828]/60 text-white'
-            : 'bg-[#101212] border-[#1E5AA8]/60 text-white'
+            ? 'bg-white border-[#C62828]/60 text-slate-900'
+            : 'bg-white border-[#1E5AA8]/60 text-slate-900'
         ]"
       >
         <span
@@ -33,7 +33,7 @@
         <p class="flex-1">{{ toast.message }}</p>
         <button
           @click="appStore.removeToast(toast.id)"
-          class="text-neutral-400 hover:text-white transition-colors text-xs"
+          class="text-slate-500 hover:text-slate-900 transition-colors text-xs"
         >
           ✕
         </button>
